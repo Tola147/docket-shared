@@ -92,6 +92,27 @@ export interface Notification {
   case?: Case;
 }
 
+// ─── Cause List ───────────────────────────────────────────────────────────────
+
+export type CauseListSource = 'ogun_state' | 'nicn' | 'lagos_state' | 'supreme_court';
+
+export interface CauseListEntry {
+  id: string;
+  source: CauseListSource;
+  case_number: string;
+  parties: string;
+  court_name: string;
+  judge_name: string | null;
+  date: string | null;          // ISO date string — null for NICN entries without dates
+  status: string;               // raw status as scraped from source
+  court_id: string | null;      // resolved FK (null if unresolved)
+  judge_id: string | null;      // resolved FK (null if unresolved)
+  created_at: string;
+  scraped_at: string;
+  court?: Court;
+  judge?: Judge;
+}
+
 // ─── Subscriptions ─────────────────────────────────────────────────────────────
 
 export interface Subscription {

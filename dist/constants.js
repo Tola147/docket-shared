@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.APP_CONFIG = exports.NIGERIA_STATES = exports.DEMO_CREDENTIALS = exports.SUBSCRIPTION_CONFIG = exports.CASE_STATUS_CONFIG = exports.COLORS = void 0;
+exports.APP_CONFIG = exports.CAUSE_LIST_SOURCE_LABELS = exports.CAUSE_LIST_STATUS_MAP = exports.NIGERIA_STATES = exports.DEMO_CREDENTIALS = exports.SUBSCRIPTION_CONFIG = exports.CASE_STATUS_CONFIG = exports.COLORS = void 0;
+exports.mapCauseListStatusToCaseStatus = mapCauseListStatusToCaseStatus;
 // ─── Brand Colors ───────────────────────────────────────────────────────────────
 exports.COLORS = {
     primary: '#8DC63F',
@@ -53,6 +54,45 @@ exports.NIGERIA_STATES = [
     'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun',
     'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara',
 ];
+// ─── Cause List Status Mapping ──────────────────────────────────────────────────
+/**
+ * Maps raw scraped cause list statuses to CaseStatus enum values.
+ * Keys are normalised to lower-case for case-insensitive matching.
+ */
+exports.CAUSE_LIST_STATUS_MAP = {
+    'for mention': 'Mention',
+    'mention': 'Mention',
+    'for hearing': 'Hearing of Application',
+    'hearing': 'Hearing of Application',
+    'for ptc': 'Hearing of Application',
+    'for application': 'Hearing of Application',
+    'for trial': 'Trial',
+    'trial': 'Trial',
+    'for report of settlement': 'Report of Settlement',
+    'report of settlement': 'Report of Settlement',
+    'for ruling': 'Ruling',
+    'ruling': 'Ruling',
+    'for adoption': 'Ruling',
+    'for judgement': 'Judgement',
+    'judgement': 'Judgement',
+    'judgment': 'Judgement',
+    'for terms of settlement': 'Terms of Settlement',
+    'terms of settlement': 'Terms of Settlement',
+};
+/**
+ * Convert a raw scraped status string to its CaseStatus enum value.
+ * Falls back to "Mention" for unrecognised statuses.
+ */
+function mapCauseListStatusToCaseStatus(rawStatus) {
+    return exports.CAUSE_LIST_STATUS_MAP[rawStatus.trim().toLowerCase()] ?? 'Mention';
+}
+// ─── Cause List Source Labels ───────────────────────────────────────────────────
+exports.CAUSE_LIST_SOURCE_LABELS = {
+    ogun_state: 'Ogun State High Court',
+    nicn: 'National Industrial Court',
+    lagos_state: 'Lagos State Judiciary',
+    supreme_court: 'Supreme Court of Nigeria',
+};
 // ─── App Config ─────────────────────────────────────────────────────────────────
 exports.APP_CONFIG = {
     name: 'Docket',

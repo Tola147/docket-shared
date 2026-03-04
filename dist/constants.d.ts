@@ -1,4 +1,4 @@
-import { CaseStatus, SubscriptionTier } from './types';
+import { CaseStatus, CauseListSource, SubscriptionTier } from './types';
 export declare const COLORS: {
     readonly primary: "#8DC63F";
     readonly dark: "#2D2D2D";
@@ -44,6 +44,17 @@ export declare const DEMO_CREDENTIALS: {
     };
 };
 export declare const NIGERIA_STATES: string[];
+/**
+ * Maps raw scraped cause list statuses to CaseStatus enum values.
+ * Keys are normalised to lower-case for case-insensitive matching.
+ */
+export declare const CAUSE_LIST_STATUS_MAP: Record<string, CaseStatus>;
+/**
+ * Convert a raw scraped status string to its CaseStatus enum value.
+ * Falls back to "Mention" for unrecognised statuses.
+ */
+export declare function mapCauseListStatusToCaseStatus(rawStatus: string): CaseStatus;
+export declare const CAUSE_LIST_SOURCE_LABELS: Record<CauseListSource, string>;
 export declare const APP_CONFIG: {
     readonly name: "Docket";
     readonly tagline: "Never Miss a Court Date";

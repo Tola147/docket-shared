@@ -66,6 +66,23 @@ export interface Notification {
     created_at: string;
     case?: Case;
 }
+export type CauseListSource = 'ogun_state' | 'nicn' | 'lagos_state' | 'supreme_court';
+export interface CauseListEntry {
+    id: string;
+    source: CauseListSource;
+    case_number: string;
+    parties: string;
+    court_name: string;
+    judge_name: string | null;
+    date: string | null;
+    status: string;
+    court_id: string | null;
+    judge_id: string | null;
+    created_at: string;
+    scraped_at: string;
+    court?: Court;
+    judge?: Judge;
+}
 export interface Subscription {
     id: string;
     user_id: string;

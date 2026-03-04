@@ -1,4 +1,4 @@
-import { CaseStatus, SubscriptionTier } from './types';
+import { CaseStatus, CauseListSource, SubscriptionTier } from './types';
 
 // ─── Brand Colors ───────────────────────────────────────────────────────────────
 
@@ -61,6 +61,50 @@ export const NIGERIA_STATES = [
   'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun',
   'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara',
 ];
+
+// ─── Cause List Status Mapping ──────────────────────────────────────────────────
+
+/**
+ * Maps raw scraped cause list statuses to CaseStatus enum values.
+ * Keys are normalised to lower-case for case-insensitive matching.
+ */
+export const CAUSE_LIST_STATUS_MAP: Record<string, CaseStatus> = {
+  'for mention': 'Mention',
+  'mention': 'Mention',
+  'for hearing': 'Hearing of Application',
+  'hearing': 'Hearing of Application',
+  'for ptc': 'Hearing of Application',
+  'for application': 'Hearing of Application',
+  'for trial': 'Trial',
+  'trial': 'Trial',
+  'for report of settlement': 'Report of Settlement',
+  'report of settlement': 'Report of Settlement',
+  'for ruling': 'Ruling',
+  'ruling': 'Ruling',
+  'for adoption': 'Ruling',
+  'for judgement': 'Judgement',
+  'judgement': 'Judgement',
+  'judgment': 'Judgement',
+  'for terms of settlement': 'Terms of Settlement',
+  'terms of settlement': 'Terms of Settlement',
+};
+
+/**
+ * Convert a raw scraped status string to its CaseStatus enum value.
+ * Falls back to "Mention" for unrecognised statuses.
+ */
+export function mapCauseListStatusToCaseStatus(rawStatus: string): CaseStatus {
+  return CAUSE_LIST_STATUS_MAP[rawStatus.trim().toLowerCase()] ?? 'Mention';
+}
+
+// ─── Cause List Source Labels ───────────────────────────────────────────────────
+
+export const CAUSE_LIST_SOURCE_LABELS: Record<CauseListSource, string> = {
+  ogun_state: 'Ogun State High Court',
+  nicn: 'National Industrial Court',
+  lagos_state: 'Lagos State Judiciary',
+  supreme_court: 'Supreme Court of Nigeria',
+};
 
 // ─── App Config ─────────────────────────────────────────────────────────────────
 
