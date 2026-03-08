@@ -11,6 +11,7 @@ export interface User {
   phone: string;
   nba_number?: string;
   firm?: string;
+  court_id?: string;   // Only for registrars — the court they are assigned to
   role: UserRole;
   subscription_tier: SubscriptionTier;
   sms_enabled: boolean;

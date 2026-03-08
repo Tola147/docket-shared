@@ -8,6 +8,7 @@ export interface User {
     phone: string;
     nba_number?: string;
     firm?: string;
+    court_id?: string;
     role: UserRole;
     subscription_tier: SubscriptionTier;
     sms_enabled: boolean;
