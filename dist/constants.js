@@ -1,9 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.APP_CONFIG = exports.CAUSE_LIST_SOURCE_LABELS = exports.CAUSE_LIST_STATUS_MAP = exports.NIGERIA_STATES = exports.DEMO_CREDENTIALS = exports.SUBSCRIPTION_CONFIG = exports.CASE_STATUS_CONFIG = exports.COLORS = void 0;
-exports.mapCauseListStatusToCaseStatus = mapCauseListStatusToCaseStatus;
 // ─── Brand Colors ───────────────────────────────────────────────────────────────
-exports.COLORS = {
+export const COLORS = {
     primary: '#8DC63F',
     dark: '#2D2D2D',
     background: '#F9F9F6',
@@ -24,7 +20,7 @@ exports.COLORS = {
     },
 };
 // ─── Case Status Config ─────────────────────────────────────────────────────────
-exports.CASE_STATUS_CONFIG = {
+export const CASE_STATUS_CONFIG = {
     Mention: { label: 'Mention', color: '#1D4ED8', bg: '#DBEAFE' },
     'Hearing of Application': { label: 'Hearing of Application', color: '#7C3AED', bg: '#EDE9FE' },
     Trial: { label: 'Trial', color: '#D97706', bg: '#FEF3C7' },
@@ -34,19 +30,19 @@ exports.CASE_STATUS_CONFIG = {
     'Terms of Settlement': { label: 'Terms of Settlement', color: '#0E7490', bg: '#CFFAFE' },
 };
 // ─── Subscription Tiers ─────────────────────────────────────────────────────────
-exports.SUBSCRIPTION_CONFIG = {
+export const SUBSCRIPTION_CONFIG = {
     free: { label: 'Free', cases_limit: 5, color: '#6B7280' },
     basic: { label: 'Basic', cases_limit: 50, color: '#2563EB' },
     enterprise: { label: 'Enterprise', cases_limit: 999, color: '#8DC63F' },
 };
 // ─── Demo Credentials ───────────────────────────────────────────────────────────
-exports.DEMO_CREDENTIALS = {
+export const DEMO_CREDENTIALS = {
     lawyer: { email: 'lawyer@demo.com', password: 'demo1234' },
     registrar: { email: 'registrar@demo.com', password: 'demo1234' },
     admin: { email: 'admin@demo.com', password: 'demo1234' },
 };
 // ─── Nigeria States ─────────────────────────────────────────────────────────────
-exports.NIGERIA_STATES = [
+export const NIGERIA_STATES = [
     'Abia', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa',
     'Benue', 'Borno', 'Cross River', 'Delta', 'Ebonyi', 'Edo',
     'Ekiti', 'Enugu', 'FCT', 'Gombe', 'Imo', 'Jigawa',
@@ -59,7 +55,7 @@ exports.NIGERIA_STATES = [
  * Maps raw scraped cause list statuses to CaseStatus enum values.
  * Keys are normalised to lower-case for case-insensitive matching.
  */
-exports.CAUSE_LIST_STATUS_MAP = {
+export const CAUSE_LIST_STATUS_MAP = {
     'for mention': 'Mention',
     'mention': 'Mention',
     'for hearing': 'Hearing of Application',
@@ -83,18 +79,18 @@ exports.CAUSE_LIST_STATUS_MAP = {
  * Convert a raw scraped status string to its CaseStatus enum value.
  * Falls back to "Mention" for unrecognised statuses.
  */
-function mapCauseListStatusToCaseStatus(rawStatus) {
-    return exports.CAUSE_LIST_STATUS_MAP[rawStatus.trim().toLowerCase()] ?? 'Mention';
+export function mapCauseListStatusToCaseStatus(rawStatus) {
+    return CAUSE_LIST_STATUS_MAP[rawStatus.trim().toLowerCase()] ?? 'Mention';
 }
 // ─── Cause List Source Labels ───────────────────────────────────────────────────
-exports.CAUSE_LIST_SOURCE_LABELS = {
+export const CAUSE_LIST_SOURCE_LABELS = {
     ogun_state: 'Ogun State High Court',
     nicn: 'National Industrial Court',
     lagos_state: 'Lagos State Judiciary',
     supreme_court: 'Supreme Court of Nigeria',
 };
 // ─── App Config ─────────────────────────────────────────────────────────────────
-exports.APP_CONFIG = {
+export const APP_CONFIG = {
     name: 'Docket',
     tagline: 'Never Miss a Court Date',
     version: '1.0.0',
