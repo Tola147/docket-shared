@@ -49,6 +49,9 @@ export declare const NIGERIA_STATES: string[];
  * Keys are normalised to lower-case for case-insensitive matching.
  */
 export declare const CAUSE_LIST_STATUS_MAP: Record<string, CaseStatus>;
+/** Statuses that end a matter's life on the active docket. */
+export declare const TERMINAL_CASE_STATUSES: CaseStatus[];
+export declare function isTerminalCaseStatus(status: string): boolean;
 /**
  * Days allowed to appeal a final High Court decision to the Court of Appeal
  * (s. 24(2) Court of Appeal Act — 90 days for final decisions in civil cases).

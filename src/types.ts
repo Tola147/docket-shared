@@ -48,7 +48,9 @@ export type CaseStatus =
   | 'Ruling'
   | 'Judgement'
   | 'Terms of Settlement'
-  | 'Judgment Delivered'; // terminal — case concluded, appeal window running
+  | 'Judgment Delivered' // terminal — concluded on the merits, appeal window running
+  | 'Struck Out'         // semi-terminal — off the list, may be relisted on application
+  | 'Dismissed';         // terminal — final decision, appeal window running
 
 export interface Case {
   id: string;

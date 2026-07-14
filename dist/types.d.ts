@@ -29,7 +29,7 @@ export interface Judge {
     active: boolean;
     court?: Court;
 }
-export type CaseStatus = 'Mention' | 'Hearing of Application' | 'Trial' | 'Report of Settlement' | 'Ruling' | 'Judgement' | 'Terms of Settlement' | 'Judgment Delivered';
+export type CaseStatus = 'Mention' | 'Hearing of Application' | 'Trial' | 'Report of Settlement' | 'Ruling' | 'Judgement' | 'Terms of Settlement' | 'Judgment Delivered' | 'Struck Out' | 'Dismissed';
 export interface Case {
     id: string;
     lawyer_id: string;

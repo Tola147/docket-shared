@@ -34,6 +34,8 @@ export const CASE_STATUS_CONFIG: Record<CaseStatus, { label: string; color: stri
   Judgement: { label: 'Judgement', color: '#166534', bg: '#DCFCE7' },
   'Terms of Settlement': { label: 'Terms of Settlement', color: '#0E7490', bg: '#CFFAFE' },
   'Judgment Delivered': { label: 'Judgment Delivered', color: '#6D28D9', bg: '#F3E8FF' },
+  'Struck Out': { label: 'Struck Out', color: '#475569', bg: '#F1F5F9' },
+  Dismissed: { label: 'Dismissed', color: '#B91C1C', bg: '#FEE2E2' },
 };
 
 // ─── Subscription Tiers ─────────────────────────────────────────────────────────
@@ -90,7 +92,20 @@ export const CAUSE_LIST_STATUS_MAP: Record<string, CaseStatus> = {
   'terms of settlement': 'Terms of Settlement',
   'judgment delivered': 'Judgment Delivered',
   'judgement delivered': 'Judgment Delivered',
+  'struck out': 'Struck Out',
+  'dismissed': 'Dismissed',
 };
+
+/** Statuses that end a matter's life on the active docket. */
+export const TERMINAL_CASE_STATUSES: CaseStatus[] = [
+  'Judgment Delivered',
+  'Struck Out',
+  'Dismissed',
+];
+
+export function isTerminalCaseStatus(status: string): boolean {
+  return (TERMINAL_CASE_STATUSES as string[]).includes(status);
+}
 
 /**
  * Days allowed to appeal a final High Court decision to the Court of Appeal

@@ -29,6 +29,8 @@ export const CASE_STATUS_CONFIG = {
     Judgement: { label: 'Judgement', color: '#166534', bg: '#DCFCE7' },
     'Terms of Settlement': { label: 'Terms of Settlement', color: '#0E7490', bg: '#CFFAFE' },
     'Judgment Delivered': { label: 'Judgment Delivered', color: '#6D28D9', bg: '#F3E8FF' },
+    'Struck Out': { label: 'Struck Out', color: '#475569', bg: '#F1F5F9' },
+    Dismissed: { label: 'Dismissed', color: '#B91C1C', bg: '#FEE2E2' },
 };
 // ─── Subscription Tiers ─────────────────────────────────────────────────────────
 export const SUBSCRIPTION_CONFIG = {
@@ -77,7 +79,18 @@ export const CAUSE_LIST_STATUS_MAP = {
     'terms of settlement': 'Terms of Settlement',
     'judgment delivered': 'Judgment Delivered',
     'judgement delivered': 'Judgment Delivered',
+    'struck out': 'Struck Out',
+    'dismissed': 'Dismissed',
 };
+/** Statuses that end a matter's life on the active docket. */
+export const TERMINAL_CASE_STATUSES = [
+    'Judgment Delivered',
+    'Struck Out',
+    'Dismissed',
+];
+export function isTerminalCaseStatus(status) {
+    return TERMINAL_CASE_STATUSES.includes(status);
+}
 /**
  * Days allowed to appeal a final High Court decision to the Court of Appeal
  * (s. 24(2) Court of Appeal Act — 90 days for final decisions in civil cases).
