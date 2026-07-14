@@ -47,7 +47,8 @@ export type CaseStatus =
   | 'Report of Settlement'
   | 'Ruling'
   | 'Judgement'
-  | 'Terms of Settlement';
+  | 'Terms of Settlement'
+  | 'Judgment Delivered'; // terminal — case concluded, appeal window running
 
 export interface Case {
   id: string;

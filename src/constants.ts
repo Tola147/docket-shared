@@ -87,7 +87,15 @@ export const CAUSE_LIST_STATUS_MAP: Record<string, CaseStatus> = {
   'judgment': 'Judgement',
   'for terms of settlement': 'Terms of Settlement',
   'terms of settlement': 'Terms of Settlement',
+  'judgment delivered': 'Judgment Delivered',
+  'judgement delivered': 'Judgment Delivered',
 };
+
+/**
+ * Days allowed to appeal a final High Court decision to the Court of Appeal
+ * (s. 24(2) Court of Appeal Act — 90 days for final decisions in civil cases).
+ */
+export const APPEAL_WINDOW_DAYS = 90;
 
 /**
  * Convert a raw scraped status string to its CaseStatus enum value.
