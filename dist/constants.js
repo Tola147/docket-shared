@@ -28,6 +28,7 @@ export const CASE_STATUS_CONFIG = {
     Ruling: { label: 'Ruling', color: '#B45309', bg: '#FEF9C3' },
     Judgement: { label: 'Judgement', color: '#166534', bg: '#DCFCE7' },
     'Terms of Settlement': { label: 'Terms of Settlement', color: '#0E7490', bg: '#CFFAFE' },
+    'Judgment Delivered': { label: 'Judgment Delivered', color: '#6D28D9', bg: '#F3E8FF' },
 };
 // ─── Subscription Tiers ─────────────────────────────────────────────────────────
 export const SUBSCRIPTION_CONFIG = {
