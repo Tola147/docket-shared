@@ -111,6 +111,7 @@ export interface CauseListEntry {
   status: string;               // raw status as scraped from source
   court_id: string | null;      // resolved FK (null if unresolved)
   judge_id: string | null;      // resolved FK (null if unresolved)
+  sealed?: boolean;             // ex parte listing — hidden from lawyers until unsealed
   created_at: string;
   scraped_at: string;
   court?: Court;
