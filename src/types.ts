@@ -60,7 +60,8 @@ export interface Case {
   court_id: string;
   judge_id: string;
   status: CaseStatus;
-  next_date: string; // ISO date string
+  next_date: string; // ISO date string — the first/next sitting day
+  hearing_dates?: string[] | null; // all sitting days when adjourned as a block (trial), else null
   notes?: string;
   created_at: string;
   court?: Court;

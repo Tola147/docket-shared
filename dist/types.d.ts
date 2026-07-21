@@ -39,6 +39,7 @@ export interface Case {
     judge_id: string;
     status: CaseStatus;
     next_date: string;
+    hearing_dates?: string[] | null;
     notes?: string;
     created_at: string;
     court?: Court;
