@@ -62,6 +62,7 @@ export interface Case {
   status: CaseStatus;
   next_date: string; // ISO date string — the first/next sitting day
   hearing_dates?: string[] | null; // all sitting days when adjourned as a block (trial), else null
+  delisted?: boolean; // the registry removed this matter's cause list entry; revived on re-listing
   notes?: string;
   created_at: string;
   court?: Court;

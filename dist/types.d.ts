@@ -40,6 +40,7 @@ export interface Case {
     status: CaseStatus;
     next_date: string;
     hearing_dates?: string[] | null;
+    delisted?: boolean;
     notes?: string;
     created_at: string;
     court?: Court;
