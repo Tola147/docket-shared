@@ -80,7 +80,6 @@ export interface CauseListEntry {
     status: string;
     court_id: string | null;
     judge_id: string | null;
-    sealed?: boolean;
     created_at: string;
     scraped_at: string;
     court?: Court;
